@@ -10,7 +10,6 @@ class UserWrapper
         } catch (Exception $e) {
             throw new Exception($e);
         }
-
         return $allUsers;
     }
 }
