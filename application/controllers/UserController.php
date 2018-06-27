@@ -7,6 +7,6 @@ class UserController extends CI_Controller
     {
         $list = UserWrapper::getById(8);
 
-        $this->load->view('home/index', ['list' => $list]);
+        $this->layout->view('home/index', ['list' => $list]);
     }
 }
