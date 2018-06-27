@@ -8,10 +8,12 @@
 
     <p>List of Programming Languages</p>
     <ul>
-    <?php foreach ($list as $obj) {
-    ?>
-        <li><?php echo $obj->username ?> </li>
+    <?php 
+    foreach ($list as $obj) {
+        ?>
+        <li><?php echo $obj ?> </li>
     <?php
+
 } ?>
     </ul>
 </body>

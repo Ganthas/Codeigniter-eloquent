@@ -1,11 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class UserController extends CI_Controller
+class RoleController extends CI_Controller
 {
     public function index()
     {
-        $list = UserWrapper::getById(8);
 
         $this->load->view('home/index', ['list' => $list]);
     }

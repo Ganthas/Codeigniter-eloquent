@@ -20,7 +20,7 @@ class Wrapper
                     $explodeArchivo = explode('.', $archivo);
                     $extension = '.' . $explodeArchivo[1];
                     if ($extension == EXT) {
-                        return self::autoload($explodeArchivo[0]);
+                        self::autoload($explodeArchivo[0]);
                     }
                 }
             }

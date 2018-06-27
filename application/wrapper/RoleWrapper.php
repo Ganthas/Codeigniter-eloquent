@@ -1,25 +1,25 @@
 <?php
 defined("BASEPATH") or exit("El acceso directo al script no está permitido!!!");
 
-class UserWrapper
+class RoleWrapper
 {
-    public static function getAllUsers()
+    public static function getAllRoles()
     {
         try {
-            $allUsers = UserPersistence::all();
+            $allRoles = RolePersistence::all();
         } catch (Exception $e) {
             throw new Exception($e);
         }
-        return $allUsers;
+        return $allRoles;
     }
 
     public static function getById($id)
     {
         try {
-            $user = UserPersistence::find($id);
+            $role = RolePersistence::find($id);
         } catch (Exception $e) {
             throw new Exception($e);
         }
-        return $user;
+        return $role;
     }
 }
