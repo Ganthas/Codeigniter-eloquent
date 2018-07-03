@@ -9,12 +9,13 @@
     <p>List of Programming Languages</p>
     <ul>
     <?php 
-    foreach ($list as $obj) {
-        ?>
-        <li><?php echo $obj ?> </li>
+    if (isset($list)) {
+        foreach ($list as $obj) {
+            ?>
+        <li><?php echo $obj->username ?> </li>
     <?php
-
-} ?>
+        }
+    } ?>
     </ul>
 </body>
 </html>

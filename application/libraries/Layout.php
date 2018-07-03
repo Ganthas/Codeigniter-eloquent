@@ -5,7 +5,7 @@ if (!defined('BASEPATH')) {
 class Layout
 {
     private $obj;
-    private $layout_view;
+    public $layout_view;
     private $title = '';
     private $titleDefault = '';
     private $css_list = array();
@@ -20,13 +20,11 @@ class Layout
     private $bodyClass = '';
     private $idObj = '';
 
-    public function __contruct()
+    public function __construct()
     {
-
         #obj
         $this->obj =& get_instance();
-        $this->layout_view = "layout/default.php";
-
+        $this->layout_view = "layout/default";
         #CSS
         #$this->css('public/libraries/font-awesome/css/font-awesome.css');
         #$this->css('public/libraries/bootstrap4/css/bootstrap.css');
@@ -85,14 +83,9 @@ class Layout
 
     public function view($view, $data = null, $return = false)
     {
-        $this->__contruct();
-        #render template
         $data['content_for_layout'] = $this->obj->load->view($view, $data, true);
-
-        #template
         $this->block_replace = true;
         $output = $this->obj->load->view($this->layout_view, $data, $return);
-
         return $output;
     }
     /**

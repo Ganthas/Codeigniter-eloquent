@@ -39,48 +39,6 @@
 
     <link href="/favicon.ico" rel="shortcut icon" />
 
-    <style type="text/css">
-@media print {
-  .submenu-panel {
-    display: none;
-  }
-
-  .container-fluid {
-    display: none;
-  }
-
-  .breadcrumb {
-    display: none;
-  }
-
-  .footer {
-    display: none;
-  }
-
-  .fortaleza {
-    display: none;
-  }
-
-  .filtrar
-  {
-    display: none;
-  }
-
-  .rtitulo {
-    display: block;
-  }
-
-table { page-break-after: always; }
-
-  @page
-  {
-      size:  auto;
-      margin-top: 2mm;
-  }
-
-}
-</style>
-
 </head>
 
 <body <?=$this->layout->getidObj(); ?> <?=$this->layout->getBodyClass(); ?> >
@@ -100,31 +58,15 @@ table { page-break-after: always; }
         <?=$this->layout->getNav();?>
     </div>
 
-    <?php
-    //if(isset($this->layout->getHeader())){
-      $this->load->view($this->layout->getHeader());
-    //}
+    <?php //$this->load->view($this->layout->getHeader());?>
 
-        ?>
+    <?php echo $content_for_layout?>
 
-    <?=$content_for_layout?>
-
-
-    <!-- Footer -->
-
-    <?php
-    //if(isset($this->layout->getFooter())){
-        $this->load->view($this->layout->getFooter());
-    //  }
-        //$this->load->view('template/template_footer');
-    ?>
-<?php $this->modalscompartidos->modalCargando(); ?>
-<?php $this->modalscompartidos->modalCamposRequeridos(); ?>
-
+    <?php //$this->load->view($this->layout->getFooter());?>
 
 <?php echo $this->layout->getJs(); ?>
 
-<script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script>
+<!-- <script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script> -->
 
 </body>
 </html>

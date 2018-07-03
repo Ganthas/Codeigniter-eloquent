@@ -10,9 +10,8 @@ class UserPersistence extends Eloquent
         'username', 'email', 'role_id',
     ];
 
-    public function roles()
+    public function role()
     {
         return $this->belongsTo(RolePersistence::class, 'rol_id');
     }
-
 }

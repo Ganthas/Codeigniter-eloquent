@@ -5,8 +5,8 @@ class UserController extends CI_Controller
 {
     public function index()
     {
-        $list = UserWrapper::getById(8);
-
-        $this->layout->view('home/index', ['list' => $list]);
+        $list = UserWrapper::getAllUsers();
+        $data['list']=$list;
+        $this->layout->view('home/index', $data);
     }
 }
