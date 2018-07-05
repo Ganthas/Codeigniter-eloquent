@@ -12,7 +12,7 @@
     if (isset($list)) {
         foreach ($list as $obj) {
             ?>
-        <li><?php echo $obj->username ?> </li>
+        <li><?php echo $obj ?> </li>
     <?php
         }
     } ?>

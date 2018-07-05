@@ -9,9 +9,4 @@ class UserPersistence extends Eloquent
     protected $fillable = [
         'username', 'email', 'role_id',
     ];
-
-    public function role()
-    {
-        return $this->belongsTo(RolePersistence::class, 'rol_id');
-    }
 }

@@ -1,8 +1,11 @@
 <?php
-defined("BASEPATH") or exit("El acceso directo al script no está permitido!!!");
 
 class UserWrapper
 {
+    public function __construct()
+    {
+    }
+
     public static function getAllUsers()
     {
         try {

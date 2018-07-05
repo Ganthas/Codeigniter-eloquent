@@ -64,7 +64,7 @@ class Persistence
         // if class not loaded, do a recursive search of model paths for the class
         if (!class_exists($class)) {
             foreach ($paths as $path) {
-                $found = Wrapper::recursive_require_once($class, $path . self::$autoLoadFile);
+                $found = Persistence::recursive_require_once($class, $path . self::$autoLoadFile);
                 if ($found) {
                     break;
                 }
