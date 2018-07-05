@@ -19,10 +19,15 @@ class UserWrapper
     public static function getById($id)
     {
         try {
-            $user = UserPersistence::find($id);
+            $userWrapper = UserPersistence::find($id);
+            $userWrapper->role;
+            $userDomain = new User();
+            if ($userWrapper) {
+                Utils::setDomainFromWrapper($userWrapper, $userDomain);
+            }
         } catch (Exception $e) {
             throw new Exception($e);
         }
-        return $user;
+        return $userDomain;
     }
 }

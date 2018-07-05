@@ -4,7 +4,7 @@ use \Illuminate\Database\Eloquent\Model as Eloquent;
 class RolePersistence extends Eloquent
 {
     protected $table = 'roles';
-    protected $primaryKey = 'rol_id';
+    protected $primaryKey = 'role_id';
 
     protected $fillable = [
         'rol'
@@ -12,6 +12,6 @@ class RolePersistence extends Eloquent
 
     public function users()
     {
-        return $this->belongsToMany(UserPersistence::class, 'rol_id');
+        return $this->belongsToMany(UserPersistence::class, 'role_id');
     }
 }

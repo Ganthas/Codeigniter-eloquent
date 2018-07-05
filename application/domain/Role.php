@@ -2,6 +2,6 @@
 
 class Role
 {
-    public $id;
+    public $role_id;
     public $rol;
 }
