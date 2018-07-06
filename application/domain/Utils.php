@@ -2,6 +2,9 @@
 
 class Utils
 {
+    public static $errorcode = 0;
+    public static $errordesc = 'error';
+
     public static function debugArray($array)
     {
         echo "<pre>";
@@ -22,6 +25,14 @@ class Utils
                 self::setDomainFromWrapper($objectPersistence, $newClass);
             } else {
                 $object2->{$key} = $object->{$key};
+            }
+            switch ($key) {
+                case 'resultCode':
+                    $object2->{$key} = 1;
+                    break;
+                case 'resultDesc':
+                    $object2->{$key} = 'ok';
+                    break;
             }
         }
     }

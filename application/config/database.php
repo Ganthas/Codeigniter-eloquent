@@ -69,17 +69,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
-*/
+ */
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $active_group = 'default';
 $query_builder = true;
 
 $db['default'] = array(
-    'dsn'	=> '',
+    'dsn' => '',
     'hostname' => 'localhost',
     'username' => 'root',
-    'password' => '',
+    'password' => 'root',
     'database' => 'ci',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
@@ -100,14 +100,14 @@ $db['default'] = array(
 $capsule = new Capsule;
 
 $capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => $db['default']['hostname'],
-    'database'  => $db['default']['database'],
-    'username'  => $db['default']['username'],
-    'password'  => $db['default']['password'],
-    'charset'   => $db['default']['char_set'],
+    'driver' => 'mysql',
+    'host' => $db['default']['hostname'],
+    'database' => $db['default']['database'],
+    'username' => $db['default']['username'],
+    'password' => $db['default']['password'],
+    'charset' => $db['default']['char_set'],
     'collation' => $db['default']['dbcollat'],
-    'prefix'    => $db['default']['dbprefix'],
+    'prefix' => $db['default']['dbprefix'],
 ]);
 
 $capsule->setAsGlobal();

@@ -6,4 +6,6 @@ class User
     public $username;
     public $email;
     public $role;
+    public $resultCode;
+    public $resultDesc;
 }

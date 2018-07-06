@@ -10,24 +10,36 @@ class UserWrapper
     {
         try {
             $allUsers = UserPersistence::all();
+            $users = array();
+            foreach ($allUsers as $aux) {
+                $user = new User();
+                if ($aux) {
+                    Utils::setDomainFromWrapper($aux, $user);
+                }
+                $users[] = $user;
+            }
         } catch (Exception $e) {
-            throw new Exception($e);
+            $user = new User();
+            $user->resultCode = Utils::$errorcode;
+            $user->resultDesc = Utils::$errordesc;
+            $users[] = $user;
         }
-        return $allUsers;
+        return $users;
     }
 
     public static function getById($id)
     {
         try {
             $userWrapper = UserPersistence::find($id);
-            $userWrapper->role;
-            $userDomain = new User();
+            $user = new User();
             if ($userWrapper) {
-                Utils::setDomainFromWrapper($userWrapper, $userDomain);
+                Utils::setDomainFromWrapper($userWrapper, $user);
             }
         } catch (Exception $e) {
-            throw new Exception($e);
+            $user = new User();
+            $user->resultCode = Utils::$errorcode;
+            $user->resultDesc = Utils::$errordesc;
         }
-        return $userDomain;
+        return $user;
     }
 }
