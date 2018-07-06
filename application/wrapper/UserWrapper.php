@@ -22,7 +22,8 @@ class UserWrapper
             $user = new User();
             $user->resultCode = Utils::$errorcode;
             $user->resultDesc = Utils::$errordesc;
-            $users[] = $user;
+            // $e->messageError; mensaje para registrar en log
+            return $user;
         }
         return $users;
     }
