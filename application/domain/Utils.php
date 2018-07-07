@@ -18,6 +18,7 @@ class Utils
         $vars_clase = get_class_vars(get_class($object2));
         foreach ($vars_clase as $key => $value) {
             if (is_object($object->{$key})) {
+                // Utils::debugArray(count($object->{$key}));
                 $objectPersistence = $object->{$key};
                 $class = str_replace("Persistence", "", get_class($objectPersistence));
                 $newClass = new $class;

@@ -7,11 +7,11 @@ class RolePersistence extends Eloquent
     protected $primaryKey = 'role_id';
 
     protected $fillable = [
-        'rol'
+        'role'
     ];
 
     public function users()
     {
-        return $this->belongsToMany(UserPersistence::class, 'role_id');
+        return $this->hasMany(UserPersistence::class, 'role_id');
     }
 }

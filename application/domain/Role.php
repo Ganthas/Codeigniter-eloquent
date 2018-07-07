@@ -6,4 +6,5 @@ class Role
     public $rol;
     public $resultCode;
     public $resultDesc;
+
 }

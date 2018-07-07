@@ -7,19 +7,38 @@ class RoleWrapper
     {
         try {
             $allRoles = RolePersistence::all();
+
+            $roles = array();
+            foreach ($allRoles as $aux) {
+                $role = new Role();
+                if ($aux) {
+                    Utils::setDomainFromWrapper($aux, $role);
+                }
+                $roles[] = $role;
+            }
         } catch (Exception $e) {
-            throw new Exception($e);
+            $role = new Role();
+            $role->resultCode = Utils::$errorcode;
+            $role->resultDesc = $e->messageError;
+            // $e->messageError; mensaje para registrar en log
+            return $role;
         }
-        return $allRoles;
+        return $roles;
     }
 
     public static function getById($id)
     {
         try {
-            $role = RolePersistence::find($id);
+            $userWrapper = UserPersistence::find($id);
+            $user = new User();
+            if ($userWrapper) {
+                Utils::setDomainFromWrapper($userWrapper, $user);
+            }
         } catch (Exception $e) {
-            throw new Exception($e);
+            $user = new User();
+            $user->resultCode = Utils::$errorcode;
+            $user->resultDesc = Utils::$errordesc;
         }
-        return $role;
+        return $user;
     }
 }

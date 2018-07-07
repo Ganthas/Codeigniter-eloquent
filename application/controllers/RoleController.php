@@ -5,7 +5,9 @@ class RoleController extends CI_Controller
 {
     public function index()
     {
-
-        $this->load->view('home/index', ['list' => $list]);
+        $list = RoleWrapper::getAllRoles();
+        Utils::debugArray($list);
+        $data['list'] = $list;
+        $this->layout->view('home/index', $data);
     }
 }

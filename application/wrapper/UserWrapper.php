@@ -21,7 +21,7 @@ class UserWrapper
         } catch (Exception $e) {
             $user = new User();
             $user->resultCode = Utils::$errorcode;
-            $user->resultDesc = Utils::$errordesc;
+            $user->resultDesc = $e->messageError;
             // $e->messageError; mensaje para registrar en log
             return $user;
         }
